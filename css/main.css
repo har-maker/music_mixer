@@ -1,0 +1,18 @@
+body
+{
+	background-image: url("images/background.png");
+}
+
+p
+{
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 50px;
+	color: #e6b800;
+}
+
+h1
+{
+	font-family: 'Sigmar One', cursive;
+	font-size: 75px;
+	color: #ffffff;
+}
