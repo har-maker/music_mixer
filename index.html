@@ -1,45 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <link rel="stylesheet" href="css/main.css">
-  <title>MUSIC MIXER</title>
-  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+  <title>Drag and Drop Puzzle Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <main class="wrapper">
-    <h1>MUSIC MIXER</h1>
-    <P> Click on any of the icon and you can enjoy unique sounds of the harry potter charcters.</P>
+  <header id="headLine">
+    <h1 class="hidden">Drag and Drop Puzzle Game</h1>
+    <h2>headline</h2>
+    <p>subhead</p>
+  </header>
 
-    <!-- using inline SVG files -->
+  <section id="game-boards">
+    <h2 class="hidden">The Game Board</h2>
 
-  
-</div>
+    <!-- these -->
+      <div class="puzzle-pieces">
+      <h3 class="hidden">The Drag Zone</h3>
+      <img src="images/doobby.svg" alt="top left" class="puzzle-image">
+      <img src="images/Dumbledore.svg" alt="top left" class="puzzle-image">
+      <img src="images/harry.svg" alt="top left" class="puzzle-image">
+      <img src="images/ron.svg" alt="top left" class="puzzle-image">
+    </div>
 
-</div>
+    <!-- drop the puzzle pieces here -->
+    <div class="puzzle-board">
+      <h3 class="hidden">The Drop Zones</h3>
+      <div class="drop-zone tl"></div>
+      <div class="drop-zone tr"></div>
+      <div class="drop-zone bl"></div>
+      <div class="drop-zone br"></div>
+    </div>
+  </section>
 
+  <footer>
+    <!-- <h2 class="hidden">Switch the Puzzle</h2> -->
+    <p>click thumb to change pieces!</p>
+    <nav id="buttonHolder">
+      <h3 class="hidden">Select Image</h3>
+      <img data-puzzleref="0" src="images/title.svg" alt="thumbnail">
+      <img data-puzzleref="1" src="images/mcgonagall.svg" alt="thumbnail">
+        <img data-puzzleref="2" src="images/Hermione Jean Granger.svg" alt="thumbnail">
+      <img data-puzzleref="3" src="images/buttonThree.jpg" alt="thumbnail">
+    </nav>
+  </footer>
 
-
-
-    <!--end inline SVG -->
-
-    </main>
-  <!-- always import or link your JavaScript at the bottom of the page -->
-  <script src="js/main.js"></script>
-
+  <script src="script/app.js"></script>
 </body>
-
-<style type="text/css">
-  body
-  {
-    background-image: url("images/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-
-  }
-</style>
 </html>
