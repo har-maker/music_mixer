@@ -9,8 +9,8 @@
 <body>
   <header id="headLine">
     <h1 class="hidden">Drag and Drop Puzzle Game</h1>
-    <h2>headline</h2>
-    <p>subhead</p>
+    <h1>HARRY POTTER</h1>
+    
   </header>
 
   <section id="game-boards">
@@ -19,10 +19,12 @@
     <!-- these -->
       <div class="puzzle-pieces">
       <h3 class="hidden">The Drag Zone</h3>
-      <img src="images/doobby.svg" alt="top left" class="puzzle-image">
-      <img src="images/Dumbledore.svg" alt="top left" class="puzzle-image">
-      <img src="images/harry.svg" alt="top left" class="puzzle-image">
-      <img src="images/ron.svg" alt="top left" class="puzzle-image">
+      <img src="images/doobby.jpg" alt="top left" class="puzzle-image">
+      <img src="images/Dumbledore.jpg" alt="top left" class="puzzle-image">
+      <img src="images/harry.jpg" alt="top left" class="puzzle-image">
+      <img src="images/ron.jpg" alt="top left" class="puzzle-image">
+      <img src="images/mcgonagall.jpg" alt="top left" class="puzzle-image">
+      <img src="images/Hermione Jean Granger.jpg" alt="top left" class="puzzle-image">
     </div>
 
     <!-- drop the puzzle pieces here -->
@@ -40,12 +42,19 @@
     <p>click thumb to change pieces!</p>
     <nav id="buttonHolder">
       <h3 class="hidden">Select Image</h3>
-      <img data-puzzleref="0" src="images/title.svg" alt="thumbnail">
-      <img data-puzzleref="1" src="images/mcgonagall.svg" alt="thumbnail">
-        <img data-puzzleref="2" src="images/Hermione Jean Granger.svg" alt="thumbnail">
-      <img data-puzzleref="3" src="images/buttonThree.jpg" alt="thumbnail">
+      <!--<img data-puzzleref="0" src="images/title.jpg" alt="thumbnail">-->
+      <!--<img data-puzzleref="1" src="images/mcgonagall.jpg" alt="thumbnail">
+        <img data-puzzleref="2" src="images/Hermione Jean Granger.jpg" alt="thumbnail">
+      <img data-puzzleref="3" src="images/buttonThree.jpg" alt="thumbnail">-->
     </nav>
   </footer>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="images/harry.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+  
 
   <script src="script/app.js"></script>
 </body>
