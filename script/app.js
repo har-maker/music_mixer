@@ -1,72 +1,30 @@
-(() => {
-	// set up the puzzle pieces and boards
-	const puzzleButtons = document.querySelectorAll('#buttonHolder img'),
-				puzzlePieces = document.querySelectorAll('.puzzle-pieces img'),
-				dropZones = document.querySelectorAll('.drop-zone'),
-				gameBoard = document.querySelector('.puzzle-board');
+const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
 
-	const pieceNames = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+const keys = document.querySelectorAll('.key')
+const whiteKeys = document.querySelectorAll('.key.white')
+const blackKeys = document.querySelectorAll('.key.black')
 
-	function changeImageSet() {
-		// change all the image elements on the page -> draggable image sources
-		// change the image elements on the left to match the selected puzzle
-		pieceNames.forEach((piece, index) => {
-			puzzlePieces[index].src = `images/${piece + this.dataset.puzzleref}.jpg`;
-			puzzlePieces[index].id = `${piece + this.dataset.puzzleref}`;
-		});
+keys.forEach(key => {
+  key.addEventListener('click', () => playNote(key))
+})
 
+document.addEventListener('keydown', e => {
+  if (e.repeat) return
+  const key = e.key
+  const whiteKeyIndex = WHITE_KEYS.indexOf(key)
+  const blackKeyIndex = BLACK_KEYS.indexOf(key)
 
-		// and set the drop zone background image based on the puzzle the user selects
-		gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.puzzleref}.jpg)`;
-		// debugger;
-	}
-  function allowDrag(event) {
-		console.log('started dragging an image')
+  if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
+  if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
+})
 
-		event.dataTransfer.setData("text/plain", this.id);
-  }
-	function allowDragOver(event) {
-		event.preventDefault();
-		console.log('dragged over a drop zones');
-
-	}
-	function allowDrop(event) {
-		// event.preventDefault();
-		console.log('dropped on a drop zone')
-
-		// go and get the dragged element's ID frm the data transfer object
-		let currentImage = event.dataTransfer.getData("text/plain");
-
-		// add that image to whatever drop zone  we're dropping our image on
-		event.target.appendChild(document.querySelector(`#${currentImage}`));
-  }
-
-	//add event handling here -> how is the user going to use our app?
-	// what triggers do we need?
-	// click on the bottom buttons to change the puzzle image we're working with
-	puzzleButtons.forEach(button => button.addEventListener('click', changeImageSet));
-
-	puzzlePieces.forEach(piece => piece.addEventListener('dragstart', allowDrag));
-
-	dropZones.forEach(zone => {
-		zone.addEventListener('dragover', allowDragOver);
-		zone.addEventListener('drop', allowDrop);
-	});
-
-	// call the function and pass in the first nav button as a reference
-	// research call, apply and bind -> look at MDN
-	changeImageSet.call(puzzleButtons[0]);
-})();
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+function playNote(key) {
+  const noteAudio = document.getElementById(key.dataset.note)
+  noteAudio.currentTime = 0
+  noteAudio.play()
+  key.classList.add('active')
+  noteAudio.addEventListener('ended', () => {
+    key.classList.remove('active')
+  })
 }
